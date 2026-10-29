@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qatiah · Layan</title>
+<meta name="description" content="Case study: a bill-splitting app shaped by ten interviews, a competitive analysis and a persona, with its own design system.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="page">
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Layan, home"><span class="mini-wm" aria-hidden="true"><span class="glyph" data-glyph="L"></span><span class="glyph" data-glyph="A"></span><span class="glyph" data-glyph="Y"></span><span class="glyph" data-glyph="A"></span><span class="keycap"><span class="glyph" data-glyph="N"></span></span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="cv" href="../assets/files/Layan_Almoqaiteeb_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="cs-head wrap">
+    <a class="back" href="../index.html#work">← All work</a>
+    <h1>Qatiah</h1>
+    <p class="sub">A bill-splitting app for friends and family, designed around the one thing nobody wants to do: ask for their money back.</p>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>UX researcher and UI designer, solo</dd></div>
+      <div><dt>Context</dt><dd>Masar program, Nov 2024</dd></div>
+      <div><dt>Platform</dt><dd>Mobile app</dd></div>
+      <div><dt>Methods</dt><dd>Interviews, affinity mapping, competitive analysis, persona</dd></div>
+    </dl>
+    <div class="tldr"><b>In short</b><p>I interviewed ten people about how they split shared costs. Splitting the bill turned out to be easy. Getting paid back was the hard part: most would rather cover the difference themselves than ask a friend twice. I designed Qatiah so the app does the asking, and built its design system from scratch.</p></div>
+    <figure class="cs-hero frame">
+      <div class="canvas"><img src="../assets/img/qatiah/cover.webp" alt="Three Qatiah screens, groups, home and notifications, with floating cards for a payment received, 2 of 3 paid and a bill due in 2 days" width="1600" height="1000"></div>
+    </figure>
+  </header>
+
+  <div class="cs-body wrap">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#heard">What I heard</a></li>
+        <li><a href="#market">The market</a></li>
+        <li><a href="#persona">Persona</a></li>
+        <li><a href="#decisions">Insight to screen</a></li>
+        <li><a href="#system">Design system</a></li>
+        <li><a href="#screens">All screens</a></li>
+        <li><a href="#next">Next</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose">
+      <section id="research">
+        <h2>Research</h2>
+        <div class="au-stats qt-stats">
+          <div><b>10</b><span>interviews, four as a focus group</span></div>
+          <div><b>5</b><span>competitors analyzed</span></div>
+          <div><b>11</b><span>affinity clusters</span></div>
+          <div><b>1</b><span>persona</span></div>
+        </div>
+        <p>I wrote an interview guide that moved from icebreakers to specifics: how people split a bill today, their worst experience, how they handle someone paying too much or too little, past apps, trust, payment methods and notifications. After each interview I separated notes from insights, then clustered everything on an affinity map.</p>
+        <figure class="frame">
+          <div class="frame-label"><span class="name">Affinity map / One color per participant</span></div>
+          <div class="canvas qt-scroll"><img src="../assets/img/qatiah/affinity.webp" alt="Affinity map with a column of sticky notes for each of the ten participants" width="910" height="1287" loading="lazy"></div>
+        </figure>
+      </section>
+
+      <section id="heard">
+        <h2>What I heard</h2>
+        <p>Nobody struggled with the math. The pain was social.</p>
+        <div class="qt-findings">
+          <div><b>6<small>/10</small></b><p>named late or missing repayments as their most frustrating experience.</p></div>
+          <div><b>7<small>/10</small></b><p>quietly cover the difference themselves when someone pays less, instead of asking.</p></div>
+          <div><b>6<small>/10</small></b><p>would trust an app with their money only if a bank or official authority stands behind it.</p></div>
+          <div><b>9<small>/10</small></b><p>pay each other back by bank transfer.</p></div>
+        </div>
+        <div class="qt-quotes">
+          <blockquote>"There were seven of us, but only three transferred their share. The rest still haven't paid me to this day."<cite>Participant, 27</cite></blockquote>
+          <blockquote>"Sending a notification to the other person without having to tell them directly would help avoid any embarrassment."<cite>Said, in nearly these words, by three participants</cite></blockquote>
+          <blockquote>"It would be amazing if the app could automatically take the agreed amount from everyone on the date we decided."<cite>Participant, 28</cite></blockquote>
+        </div>
+        <p>The apps people had tried didn't help either. One quit because of too many steps, two disliked a 100 SAR minimum, and three didn't know such apps existed.</p>
+      </section>
+
+      <section id="market">
+        <h2>The market</h2>
+        <p>I compared five apps people in Saudi Arabia already use for paying and splitting, on interface and experience, then on features.</p>
+        <div class="table-scroll">
+          <table class="qt-matrix">
+            <thead><tr><th>Feature</th><th>STC Pay</th><th>Al Rajhi</th><th>Tabby</th><th>Tamara</th><th>Circlys</th><th class="me">Qatiah</th></tr></thead>
+            <tbody>
+              <tr><td>Split a bill with a group</td><td class="y">●</td><td class="y">●</td><td>–</td><td>–</td><td class="y">●</td><td class="me y">●</td></tr>
+              <tr><td>Group expense tracking</td><td>–</td><td>–</td><td>–</td><td>–</td><td class="y">●</td><td class="me y">●</td></tr>
+              <tr><td>Payment reminders</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="me y">●</td></tr>
+              <tr><td>Expense breakdown</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td class="me y">●</td></tr>
+              <tr><td>QR payments</td><td class="y">●</td><td>–</td><td>–</td><td>–</td><td>–</td><td class="me y">●</td></tr>
+              <tr><td>Ease of use</td><td>Moderate</td><td>Low</td><td>High</td><td>High</td><td>High</td><td class="me">High</td></tr>
+              <tr><td>Trust</td><td>High</td><td>High</td><td>Moderate</td><td>Moderate</td><td>Low</td><td class="me">Target: high</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pull">One bank's split tool was hard to find because it isn't called what people call it.</p>
+        <p>People say <span lang="ar" class="ar">قطية</span>. The bank's app labels the feature <span lang="ar" class="ar">تقسيم الفواتير</span>, "bill splitting", and tucks it away. Qatiah uses the word people actually say.</p>
+      </section>
+
+      <section id="persona">
+        <h2>Persona</h2>
+        <p>The research came together in one persona: a social, busy 27-year-old who likes simple tools, avoids awkward follow-ups and won't trust an app that isn't backed by a bank.</p>
+        <figure class="frame qt-persona">
+          <div class="frame-label"><span class="name">Persona / Nora</span></div>
+          <div class="canvas"><img src="../assets/img/qatiah/persona.webp" alt="Persona card for Nora, 27, with background, goals, pain points and behaviors" width="910" height="1088" loading="lazy"></div>
+        </figure>
+      </section>
+
+      <section id="decisions">
+        <h2>From insight to screen</h2>
+        <p>Every main screen answers something I heard. Pick an insight to see where it went.</p>
+        <div class="qt-ex" data-qt>
+          <div class="qt-list" role="tablist" aria-label="Insights"></div>
+          <div class="qt-stage">
+            <div class="qt-phone"><div class="qt-scr"><img alt="" width="393" height="852"><span class="qt-hl" aria-hidden="true"></span><span class="qt-hl b" aria-hidden="true"></span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="system">
+        <h2>Design system</h2>
+        <p>Before the screens, I set up the foundations: a color system where every color has a job, a Poppins type scale, a spacing grid and a component library.</p>
+        <div class="qt-colors">
+          <div><i style="background:#2F80ED"></i><b>Blue</b><code>#2F80ED</code><span>Main buttons, links, primary highlights</span></div>
+          <div><i style="background:#56CCF2"></i><b>Light blue</b><code>#56CCF2</code><span>Secondary actions and accents</span></div>
+          <div><i style="background:#27AE60"></i><b>Green</b><code>#27AE60</code><span>Success and paid</span></div>
+          <div><i style="background:#F2C94C"></i><b>Yellow</b><code>#F2C94C</code><span>Warnings and pending payments</span></div>
+          <div><i style="background:#EB5757"></i><b>Red</b><code>#EB5757</code><span>Errors and overdue alerts</span></div>
+          <div><i style="background:#1E1E1E"></i><b>Dark grey</b><code>#1E1E1E</code><span>Headings and body text</span></div>
+        </div>
+        <p>Green, yellow and red do double duty: they are the payment states. A paid, due-soon or overdue bill reads at a glance, before any text.</p>
+        <div class="qt-type">
+          <div><span style="font:600 32px/1.5 Poppins">Heading 1</span><small>SemiBold 32 / 48</small></div>
+          <div><span style="font:500 24px/1.4 Poppins">Heading 2</span><small>Medium 24 / 33.6</small></div>
+          <div><span style="font:400 20px/1.5 Poppins">Heading 3</span><small>Regular 20 / 30</small></div>
+          <div><span style="font:600 14px/1.8 Poppins">Body 2</span><small>SemiBold 14 / 25.6</small></div>
+        </div>
+        <h3>Component library</h3>
+        <div class="qt-comp" data-comp>
+          <div class="qt-comp-tabs" role="tablist" aria-label="Components"></div>
+          <div class="qt-comp-stage"><img alt="" loading="lazy"><p></p></div>
+        </div>
+      </section>
+
+      <section id="screens">
+        <h2>All screens</h2>
+        <p>Twelve screens, from onboarding to profile. Scroll sideways.</p>
+        <div class="qt-gallery" tabindex="0" aria-label="Qatiah screens">
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/onb1.webp" alt="Onboarding: Welcome to Qatiah" width="393" height="852" loading="lazy"></div><figcaption>Welcome</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/onb2.webp" alt="Onboarding: Never miss a payment" width="393" height="852" loading="lazy"></div><figcaption>Never miss a payment</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/onb3.webp" alt="Onboarding: Let's get splitting" width="393" height="852" loading="lazy"></div><figcaption>Reminders</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/login.webp" alt="Log in and sign up" width="393" height="852" loading="lazy"></div><figcaption>Log in</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/home.webp" alt="Home with balance, pending bills and recent payments" width="393" height="852" loading="lazy"></div><figcaption>Home</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/groups.webp" alt="Groups with payment progress" width="393" height="852" loading="lazy"></div><figcaption>Groups</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/split.webp" alt="Split bill form" width="393" height="852" loading="lazy"></div><figcaption>Split a bill</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/history.webp" alt="Statistics and transaction history" width="393" height="852" loading="lazy"></div><figcaption>History</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/notifications.webp" alt="Notifications with paid, due and overdue states" width="393" height="852" loading="lazy"></div><figcaption>Notifications</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/settings.webp" alt="Settings menu" width="393" height="852" loading="lazy"></div><figcaption>Settings</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/profile.webp" alt="Profile form" width="393" height="852" loading="lazy"></div><figcaption>Profile</figcaption></figure>
+          <figure><div class="qt-phone sm"><img src="../assets/img/qatiah/faq.webp" alt="Frequently asked questions" width="393" height="852" loading="lazy"></div><figcaption>FAQ</figcaption></figure>
+        </div>
+      </section>
+
+      <section id="next">
+        <h2>What I'd do next</h2>
+        <p><strong>Test the split flow with the people I interviewed.</strong> The design answers what they told me; a usability test would show whether it works the way they actually behave.</p>
+        <p><strong>Give notifications a choice of channel.</strong> Two participants said they dislike app notifications, and one asked for SMS or email instead.</p>
+        <p><strong>Treat trust as a product requirement.</strong> No screen can earn it alone. Backing by a bank or official platform has to be part of the product, not only the interface.</p>
+      </section>
+    </article>
+  </div>
+
+  <div class="next wrap">
+    <a href="design-tokens.html"><small>Next case study</small><strong>Design Tokens System</strong></a>
+  </div>
+</main>
+<footer class="footer"><div class="wrap"><span>Participants are anonymized.</span><span>© 2026 Layan Almoqaiteeb</span></div></footer>
+</div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/qatiah.js"></script>
+</body>
+</html>

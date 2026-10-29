@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design Tokens System · Layan</title>
+<meta name="description" content="Case study: a token architecture for a multi-brand, bilingual, light and dark design system, from mind map to CSS variables.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="page">
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Layan, home"><span class="mini-wm" aria-hidden="true"><span class="glyph" data-glyph="L"></span><span class="glyph" data-glyph="A"></span><span class="glyph" data-glyph="Y"></span><span class="glyph" data-glyph="A"></span><span class="keycap"><span class="glyph" data-glyph="N"></span></span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="cv" href="../assets/files/Layan_Almoqaiteeb_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="cs-head wrap">
+    <a class="back" href="../index.html#work">← All work</a>
+    <h1>Design Tokens System</h1>
+    <p class="sub">One token architecture behind three brands, two languages and two themes, from a mind map to CSS variables.</p>
+    <dl class="meta">
+      <div><dt>Context</dt><dd>Design Systems and Tokens with AI program</dd></div>
+      <div><dt>Timeline</dt><dd>May to July 2026, final project as a team</dd></div>
+      <div><dt>Supervised by</dt><dd>Osama Eldrieny</dd></div>
+      <div><dt>Tools</dt><dd>Figma Variables, JSON, CSS</dd></div>
+    </dl>
+    <div class="tldr"><b>In short</b><p>In a two-month program, I built a token architecture from the ground up: I mapped component relationships first, defined three layers in Figma Variables, bound them to components and exported them to code. Our final team project ran one structure across three brands, English and Arabic, and light and dark.</p></div>
+    <figure class="cs-hero frame">
+      <div class="canvas"><img src="../assets/img/tokens/cover.webp" alt="A token chain from grey/100 to color/neutral/100 to card/border/color, beside the same component card in three brands: Diamond light, Amber dark in Arabic, and Opal light" width="1600" height="1000"></div>
+    </figure>
+  </header>
+
+  <div class="cs-body wrap">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#idea">The idea</a></li>
+        <li><a href="#plan">Plan relationships</a></li>
+        <li><a href="#layers">Three layers</a></li>
+        <li><a href="#bind">Bind to components</a></li>
+        <li><a href="#contexts">Try the system</a></li>
+        <li><a href="#code">Tokens to code</a></li>
+        <li><a href="#takeaway">Takeaway</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose">
+      <section id="idea">
+        <h2>The idea in one minute</h2>
+        <p>A design token is a named design decision. Instead of a button saying "my color is #7C4DFF", it says "my color is <code>button/primary/bg</code>", and the system decides what that means for each brand, language and theme.</p>
+        <p>The program was about designing that system rather than screens: plan how components relate, name decisions in layers, bind them to components, then hand the same source to developers. The final project, built as a team under the supervision of Osama Eldrieny, put it to the test: one set of components serving three brands, English and Arabic, and light and dark.</p>
+      </section>
+
+      <section id="plan">
+        <h2>I started with relationships, not components</h2>
+        <p>Before defining a single variable, I mapped how each component breaks down into properties and how those properties relate. A card isn't one thing: it has a price, a price unit and content, and each of those has its own font family, size, weight, line height and color.</p>
+        <figure class="frame">
+          <div class="frame-label"><span class="name">Mind map / Card and header</span><span class="dims"></span></div>
+          <div class="canvas"><img src="../assets/img/tokens/mindmap.webp" data-dims="920 × 850" alt="Two mind maps breaking a card and a profile header down into properties such as font, size, weight, padding, radius and shadow" width="920" height="850" loading="lazy"><span class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></span></div>
+          <figcaption>Mapping showed which values repeat across components, and those became shared tokens.</figcaption>
+        </figure>
+      </section>
+
+      <section id="layers">
+        <h2>Three layers, each with one job</h2>
+        <p>Take one decision, the border color of a card, and follow it through the three layers.</p>
+        <div class="tk-panel tl" data-layers>
+          <div class="tl-row">
+            <div class="tl-col">
+              <span class="tl-n">1</span>
+              <h4>Option <small>the palette</small></h4>
+              <p>Every raw value the system is allowed to use.</p>
+              <div class="tl-ramp"><i data-g="50" style="background:#F6F7F9"><span>50</span></i><i data-g="200" style="background:#E2E4EA"><span>200</span></i><i data-g="300" style="background:#C4C8D4"><span>300</span></i><i data-g="500" style="background:#7D8396"><span>500</span></i><i data-g="700" style="background:#3A3F4E"><span>700</span></i><i data-g="800" style="background:#232733"><span>800</span></i><i data-g="900" style="background:#14171F"><span>900</span></i></div>
+              <code class="tl-code">grey/<b data-l="opt">200</b></code>
+            </div>
+            <div class="tl-arrow" aria-hidden="true">→</div>
+            <div class="tl-col">
+              <span class="tl-n">2</span>
+              <h4>Alias <small>the meaning</small></h4>
+              <p>Names the value by its purpose, not its color.</p>
+              <div class="tl-map"><code>color/border</code><span>points to</span><code class="tl-hot">grey/<b data-l="opt">200</b></code></div>
+            </div>
+            <div class="tl-arrow" aria-hidden="true">→</div>
+            <div class="tl-col">
+              <span class="tl-n">3</span>
+              <h4>Component <small>the usage</small></h4>
+              <p>Says exactly where the decision is applied.</p>
+              <div class="tl-mini"><div class="tl-card"><b>Pro plan</b><span>$24 / month</span></div></div>
+              <code class="tl-code">card/border/color<br><span class="tl-dim">→ color/border</span></code>
+            </div>
+          </div>
+          <div class="tl-foot">
+            <div class="tk-seg" role="group" aria-label="Theme"><span>Theme</span><button type="button" data-t="light" aria-pressed="true">Light</button><button type="button" data-t="dark" aria-pressed="false">Dark</button></div>
+            <p data-l="msg">In light mode, <code>color/border</code> points to <code>grey/200</code>.</p>
+          </div>
+        </div>
+        <figure class="frame">
+          <div class="frame-label"><span class="name">In Figma / Option, alias and component collections</span><span class="dims"></span></div>
+          <div class="canvas"><img src="../assets/img/tokens/architecture.webp" data-dims="940 × 870" alt="Three Figma Variables collections: option with raw colors, alias referencing them, and component with four language and theme modes" width="940" height="870" loading="lazy"><span class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></span></div>
+        </figure>
+      </section>
+
+      <section id="bind">
+        <h2>Binding tokens to components</h2>
+        <p>Once tokens became variables, I bound them to every property of a component: fill, stroke, radius, text colors and even each value inside a drop shadow. The component stops storing colors and starts reading decisions.</p>
+        <div class="tk-panel bd" data-bind>
+          <div class="bd-top">
+            <div class="tk-seg" role="group" aria-label="Theme"><span>Theme</span><button type="button" data-bt="light" aria-pressed="true">Light</button><button type="button" data-bt="dark" aria-pressed="false">Dark</button></div>
+            <label class="bd-switch"><input type="checkbox" checked data-bound><span class="bd-track" aria-hidden="true"></span><span>Tokens bound</span></label>
+          </div>
+          <div class="bd-grid">
+            <div class="bd-canvas">
+              <span class="bd-frame-label">Travel card</span>
+              <article class="bd-card" data-p="fill stroke radius shadow">
+                <div class="bd-img" data-p="radius" aria-hidden="true">
+                  <svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="bdsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6C99A"/><stop offset="1" stop-color="#F3E3CF"/></linearGradient></defs><rect width="320" height="150" fill="url(#bdsky)"/><circle cx="240" cy="48" r="20" fill="#FBE6C8"/><path d="M0 150V92c18-6 30-30 52-30s26 22 44 22 22-40 52-40 30 46 56 46 26-18 46-18 36 22 70 30v48z" fill="#D98A4E"/><path d="M0 150v-30c40-10 70 6 110-2s70-26 110-16 70 18 100 14v34z" fill="#B8662F"/></svg>
+                </div>
+                <div class="bd-body">
+                  <h4 data-p="title">Discover AlUla</h4>
+                  <p data-p="body">Sandstone canyons, old towns and starry nights.</p>
+                  <p class="bd-meta" data-p="body">★ 4.9 · 5,000 travelers</p>
+                  <div class="bd-row"><p data-p="title"><b>From $800</b> <span data-p="body">per person</span></p><span class="bd-btn" data-p="button">Plan your trip</span></div>
+                </div>
+              </article>
+            </div>
+            <div class="bd-panel" role="list" aria-label="Design panel"></div>
+          </div>
+          <p class="bd-msg" aria-live="polite"></p>
+        </div>
+        <figure class="frame">
+          <div class="frame-label"><span class="name">In Figma / The same bindings on our card</span><span class="dims"></span></div>
+          <div class="canvas"><img src="../assets/img/tokens/bind-components.webp" data-dims="920 × 602" alt="A travel card in Figma with its fill, stroke and drop shadow bound to card tokens in the design panel" width="920" height="602" loading="lazy"><span class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></span></div>
+        </figure>
+      </section>
+
+      <section id="contexts">
+        <h2>Try the system</h2>
+        <p>This is the core of our final project, rebuilt live. The card below never changes: only the mode does. Three brands times two languages times two themes gives twelve contexts from one structure. Hover a row to see which part of the card it styles.</p>
+        <div class="tk-panel tk-play" data-tokens-demo>
+          <p class="tk-label">Interactive recreation of our final project</p>
+          <div class="tk-controls" data-tk-controls></div>
+          <div class="tk-grid">
+            <div class="tk-stage">
+              <div class="tk-preview">
+                <div class="tk-card" data-part="card">
+                  <p class="tk-kicker" data-part="body" data-c="kicker"></p>
+                  <h4 data-part="title" data-c="title"></h4>
+                  <p class="tk-body" data-part="body" data-c="body"></p>
+                  <p class="tk-price" data-part="title"><b data-c="price"></b> <span data-c="per"></span></p>
+                  <div class="tk-btns"><span class="tk-btn p" data-part="primary" data-c="p"></span><span class="tk-btn s" data-part="secondary" data-c="s"></span></div>
+                  <p class="tk-alert" data-part="alert" data-c="alert"></p>
+                </div>
+              </div>
+              <p class="tk-mode">Mode: <span data-tk-mode></span></p>
+            </div>
+            <div class="tk-table table-scroll">
+              <table>
+                <thead><tr><th>Component</th><th>Alias</th><th>Option</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="code">
+        <h2>From tokens to code</h2>
+        <p>A system only scales if developers can use it. We exported Figma Variables to JSON, configured the token build for naming and structure, and consumed the result as CSS variables. The code below follows the mode you picked above.</p>
+        <div class="tk-panel">
+          <div class="tk-controls" data-tk-controls></div>
+          <ol class="tk-pipe">
+            <li><div><span class="tk-n">1</span><h4>Export</h4><p>Figma Variables to JSON. References stay references.</p></div><pre class="tk-code" data-code="json"></pre></li>
+            <li><div><span class="tk-n">2</span><h4>Build</h4><p>Each mode becomes a set of CSS variables.</p></div><pre class="tk-code" data-code="css"></pre></li>
+            <li><div><span class="tk-n">3</span><h4>Use</h4><p>Components read variables, never raw values.</p></div><pre class="tk-code" data-code="use"></pre></li>
+          </ol>
+        </div>
+        <p class="pull">The card in Figma and the card in code read from the same source.</p>
+      </section>
+
+      <section id="takeaway">
+        <h2>Takeaway</h2>
+        <p><strong>Map before you define.</strong> Mapping relationships first showed which values should be shared tokens and which belong to a single component.</p>
+        <p><strong>Name for meaning, not for value.</strong> Alias names like color/neutral/100 let a brand change without touching a single component.</p>
+        <p><strong>A system is real once code reads it.</strong> Exporting to CSS variables made Figma and code read from the same source. I now bring the same thinking to work, where I co-built a unified component library on Figma Variables.</p>
+      </section>
+    </article>
+  </div>
+
+  <div class="next wrap">
+    <a href="qatiah.html"><small>Next case study</small><strong>Qatiah</strong></a>
+  </div>
+</main>
+<footer class="footer"><div class="wrap"><span>© 2026 Layan Almoqaiteeb</span></div></footer>
+</div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/tokens.js"></script>
+</body>
+</html>
